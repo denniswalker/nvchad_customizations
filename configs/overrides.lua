@@ -47,7 +47,7 @@ M.mason = {
 
     -- golang
     "gopls",
-    "golangci_lint_ls",
+    "golangci_lint",
 
     -- ruby
     "solargraph",
