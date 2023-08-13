@@ -11,7 +11,9 @@ local servers = {
   "clangd",
   "terraformls",
   "golangci_lint_ls",
+  "gopls",
   "bashls",
+  "solargraph",
   "pylsp",
   "yamlls",
   "helm_ls",
@@ -27,6 +29,8 @@ end
 
 lspconfig.terraformls.setup {
   cmd = { "terraform-ls", "serve" },
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = { "terraform", "hcl", "terraform-vars" }
 }
 -- 

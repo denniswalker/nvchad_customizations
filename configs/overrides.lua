@@ -45,6 +45,13 @@ M.mason = {
     "clangd",
     "clang-format",
 
+    -- golang
+    "gopls",
+    "golangci_lint_ls",
+
+    -- ruby
+    "solargraph",
+
     -- python
     "python-lsp-server",
 
