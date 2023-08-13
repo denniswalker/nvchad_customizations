@@ -15,7 +15,7 @@ M.ui = {
     icons = true,
     lspkind_text = true,
     style = "atom_colored",
-    border_color = "teal",
+    border_color = "cyan",
     selected_item_bg = "colored",
   },
   telescope = { style = "bordered"},
