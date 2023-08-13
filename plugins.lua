@@ -46,7 +46,13 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-  {"github/copilot.vim"},
+  {"zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end
+  },
   {"sheerun/vim-polyglot"},
   -- To make a plugin not be loaded
   --{
