@@ -46,13 +46,38 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
+
   {"zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
+    opts = overrides.copilot,
     config = function()
       require("copilot").setup({})
     end
   },
+  
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = {
+      sources = {
+        { name = "nvim_lsp", group_index = 2 },
+        { name = "copilot",  group_index = 1 },
+        { name = "luasnip",  group_index = 3 },
+        { name = "buffer",   group_index = 2 },
+        { name = "nvim_lua", group_index = 2 },
+        { name = "path",     group_index = 4 },
+      },
+    },
+  },
+
   {"sheerun/vim-polyglot"},
   -- To make a plugin not be loaded
   --{
