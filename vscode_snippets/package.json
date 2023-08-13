@@ -1,0 +1,15 @@
+{
+	"name": "terraform_snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"terraform",
+          "hcl",
+          "tf"
+				],
+				"path": "./terraform.json"
+			}
+		]
+	}
+}
