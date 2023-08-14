@@ -79,6 +79,12 @@ local plugins = {
   },
 
   {"sheerun/vim-polyglot"},
+  {"mfussenegger/nvim-dap"},
+  {"rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup()
+    end,
+  },
   -- To make a plugin not be loaded
   --{
   --  "NvChad/nvim-colorizer.lua",

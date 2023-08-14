@@ -9,4 +9,10 @@ M.general = {
 
 -- more keybinds!
 
+M.debug = {
+  n = {
+    ["<C-d>"] = {"<cmd> lua require('dapui').toggle() <CR>", "Toggle Debug"}
+  }
+}
+
 return M
