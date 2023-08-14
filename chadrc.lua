@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "gatekeeper",
-  theme_toggle = { "gatekeeper", "gruvbox_light" },
+  theme = "dark_horizon",
+  theme_toggle = { "dark_horizon", "gruvbox_light" },
   transparency = false,
   lsp_semantic_tokens = true,
   hl_override = highlights.override,
