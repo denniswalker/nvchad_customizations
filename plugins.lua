@@ -56,6 +56,21 @@ local plugins = {
     end
   },
 
+  {"jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "lpass show openai_nvim_key --password",
+        api_host_cmd = "echo -n 'api.openai.com'"
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    }
+  },
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
