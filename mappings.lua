@@ -18,7 +18,7 @@ M.debug = {
 }
 
 M.ChatGPT = {
-  n = {
+  v = {
     ["<leader>cc"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
     ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
     ["<leader>cg"] = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
