@@ -17,7 +17,8 @@ local servers = {
   "pylsp",
   "yamlls",
   "helm_ls",
-  "tflint"
+  "tflint",
+  "yamlls",
 }
 
 for _, lsp in ipairs(servers) do

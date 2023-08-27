@@ -60,7 +60,7 @@ M.mason = {
     "terraform-ls",
 
     -- yaml
-    "yaml-language-server"
+    "yaml_language_server",
   },
 }
 
