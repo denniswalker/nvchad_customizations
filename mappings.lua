@@ -4,7 +4,10 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<C-p>"] = {"<cmd> Telescope commands <CR>", "Open command palette."}
+    ["<C-p>"] = {"<cmd> Telescope commands <CR>", "Open command palette."},
+    ["<M-w"] = {"<cmd> WhichKey <CR>", "Open whichkey menu."},
+    ["<C-o>"] = {"<cmd> SymbolsOutline <CR>", "Open symbols outline."},
+    ["<leader>fs"] = {"<cmd> Telescope lsp_workspace_symbols <CR>", "Find Symbols."},
   },
 }
 

@@ -105,6 +105,12 @@ local plugins = {
       require("dap-python").setup("python3")
     end,
   },
+  {'simrat39/symbols-outline.nvim',
+    config = function()
+      require("symbols-outline").setup()
+    end,
+    lazy = false,
+  },
   -- To make a plugin not be loaded
   --{
   --  "NvChad/nvim-colorizer.lua",
