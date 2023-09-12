@@ -29,6 +29,7 @@ M.mason = {
     "dockerfile-language-server",
     "helm-ls",
     "bash-language-server",
+    "shfmt",
 
     -- lua stuff
     "lua-language-server",
@@ -48,12 +49,16 @@ M.mason = {
     -- golang
     "gopls",
     "golangci_lint",
+    "goimports",
+    "gofumpt",
 
     -- ruby
     "solargraph",
 
     -- python
     "python-lsp-server",
+    "black",
+    "pylama",
 
     -- terraform
     "tflint",

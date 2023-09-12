@@ -17,6 +17,20 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  -- python
+  b.formatting.black,
+
+  -- bash
+  b.formatting.shfmt,
+
+  -- terraform
+  b.formatting.terraform_fmt,
+
+  -- golang
+  b.formatting.goimports,
+  b.formatting.gofumpt,
+
 }
 
 null_ls.setup {
