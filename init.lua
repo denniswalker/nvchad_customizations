@@ -9,3 +9,4 @@
 vim.filetype.add { extension = { hcl = 'terraform' } }
 vim.g.snipmate_snippets_path = "~/.config/nvim/lua/custom/snippets"
 vim.g.vscode_snippets_path = "~/.config/nvim/lua/custom/vscode_snippets"
+
