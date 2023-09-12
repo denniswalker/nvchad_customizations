@@ -57,7 +57,8 @@ local plugins = {
   },
 
   {"jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    lazy = false,
     config = function()
       require("chatgpt").setup({
         api_key_cmd = "lpass show openai_nvim_key --password",
@@ -100,17 +101,26 @@ local plugins = {
       require("dapui").setup()
     end,
   },
+
   {"mfussenegger/nvim-dap-python",
     config = function()
       require("dap-python").setup("python3")
     end,
   },
+
   {'simrat39/symbols-outline.nvim',
     config = function()
       require("symbols-outline").setup()
     end,
     lazy = false,
   },
+
+  { 'kosayoda/nvim-lightbulb',
+    config = function()
+      require("nvim-lightbulb").setup()
+    end,
+  },
+
   -- To make a plugin not be loaded
   --{
   --  "NvChad/nvim-colorizer.lua",
