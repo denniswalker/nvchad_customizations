@@ -100,6 +100,8 @@ local plugins = {
 
   { "mfussenegger/nvim-dap" },
 
+  { "rcarriga/nvim-notify" },
+
   {
     "rcarriga/nvim-dap-ui",
     config = function()
