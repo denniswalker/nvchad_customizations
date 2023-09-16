@@ -137,7 +137,7 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
     },
     config = function()
-      require("dap-python").setup "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3"
+      require("dap-python").setup(vim.fn.expand "$HOME/.local/share/nvim/mason/packages/debugpy/venv/bin/python3")
       require("core.utils").load_mappings "dap_python"
     end,
   },
@@ -152,7 +152,7 @@ local plugins = {
     config = function()
       require("dap-go").setup {
         delve = {
-          path = "~/.local/share/nvim/mason/packages/delve/dlv",
+          path = vim.fn.expand "$HOME/.local/share/nvim/mason/packages/delve/dlv",
         },
       }
       require("core.utils").load_mappings "dap_go"

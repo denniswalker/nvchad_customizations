@@ -19,7 +19,7 @@ dap.adapters.python = function(cb, config)
   else
     cb {
       type = "executable",
-      command = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python3",
+      command = vim.fn.expand "$HOME/.local/share/nvim/mason/packages/debugpy/venv/bin/python3",
       args = { "-m", "debugpy.adapter" },
       options = {
         source_filetype = "python",
