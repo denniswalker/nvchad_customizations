@@ -29,7 +29,7 @@ M.dap = {
       end,
       "Toggle Debug UI",
     },
-    ["<lddeader>mdt"] = {
+    ["<leader>mdt"] = {
       function()
         require("dap").toggle_breakpoint()
       end,
