@@ -30,6 +30,7 @@ M.mason = {
     "dockerfile-language-server",
     "helm-ls",
     "bash-language-server",
+    "bash-debug-adapter",
     "shfmt",
 
     -- lua stuff
