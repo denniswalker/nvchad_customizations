@@ -14,34 +14,123 @@ M.general = {
 -- more keybinds!
 M.LSPSaga = {
   n = {
-    ["<leader>dca"] = { "<cmd>Lspsaga code_action <CR>", "Code action" },
-    ["<leader>dch"] = { "<cmd>Lspsaga hover_doc <CR>", "Hover docs" },
-    ["<leader>dcf"] = { "<cmd>Lspsaga finder <CR>", "Find references" },
-    ["<leader>dcp"] = { "<cmd>Lspsaga peek_definition <CR>", "Show definition" },
+    ["<leader>mca"] = { "<cmd>Lspsaga code_action <CR>", "Code action" },
+    ["<leader>mch"] = { "<cmd>Lspsaga hover_doc <CR>", "Hover docs" },
+    ["<leader>mcf"] = { "<cmd>Lspsaga finder <CR>", "Find references" },
+    ["<leader>mcp"] = { "<cmd>Lspsaga peek_definition <CR>", "Show definition" },
   },
 }
-M.debug = {
+M.dap = {
+  plugin = true,
   n = {
-    ["<leader>ddd"] = { "<cmd> lua require('dapui').toggle() <CR>", "Toggle Debug" },
-    ["<leader>ddb"] = { "<cmd> lua require('dap').toggle_breakpoint() <CR>", "Toggle Breakpoint" },
+    ["<leader>mdd"] = {
+      function()
+        require("dapui").toggle()
+      end,
+      "Toggle Debug UI",
+    },
+    ["<lddeader>mdt"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle Breakpoint",
+    },
+  },
+}
+
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>mdptm"] = {
+      function()
+        require("dap-python").test_method()
+      end,
+      "Run the current test method",
+    },
+    ["<leader>mdptc"] = {
+      function()
+        require("dap-python").test_class()
+      end,
+      "Run the current test class",
+    },
+    ["<leader>mdpl"] = {
+      function()
+        require("dap-python").debug_last()
+      end,
+      "Debug last",
+    },
+    ["<leader>mdpi"] = {
+      function()
+        require("dap-python").debug_import()
+      end,
+      "Debug import",
+    },
+    ["<leader>mdpc"] = {
+      function()
+        require("dap-python").debug_config()
+      end,
+      "Debug config",
+    },
+    ["<leader>mdpb"] = {
+      function()
+        require("dap-python").debug_breakpoint()
+      end,
+      "Debug breakpoint",
+    },
+    ["<leader>mdptn"] = {
+      function()
+        require("dap-python").debug_test_nearest()
+      end,
+      "Debug test nearest",
+    },
+    ["<leader>mdptl"] = {
+      function()
+        require("dap-python").debug_test_last()
+      end,
+      "Debug test last",
+    },
+    ["<leader>mdptr"] = {
+      function()
+        require("dap-python").debug_test_repeat()
+      end,
+      "Debug test repeat",
+    },
+    ["<leader>mdptf"] = {
+      function()
+        require("dap-python").debug_test_file()
+      end,
+      "Debug test file",
+    },
+    ["<leader>mdpts"] = {
+      function()
+        require("dap-python").debug_test_suite()
+      end,
+      "Debug test suite",
+    },
+    ["<leader>mdpty"] = {
+      function()
+        require("dap-python").debug_test_flaky()
+      end,
+      "Debug test flaky",
+    },
   },
 }
 
 M.ChatGPT = {
   v = {
-    ["<leader>dgc"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-    ["<leader>dge"] = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction" },
-    ["<leader>dgg"] = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction" },
-    ["<leader>dgt"] = { "<cmd>ChatGPTRun translate<CR>", "Translate" },
-    ["<leader>dgk"] = { "<cmd>ChatGPTRun keywords<CR>", "Keywords" },
-    ["<leader>dgd"] = { "<cmd>ChatGPTRun docstring<CR>", "Docstring" },
-    ["<leader>dga"] = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests" },
-    ["<leader>dgo"] = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code" },
-    ["<leader>dgs"] = { "<cmd>ChatGPTRun summarize<CR>", "Summarize" },
-    ["<leader>dgf"] = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs" },
-    ["<leader>dgx"] = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code" },
-    ["<leader>dgr"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit" },
-    ["<leader>dgl"] = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis" },
+    ["<leader>mgc"] = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    ["<leader>mge"] = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction" },
+    ["<leader>mgg"] = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction" },
+    ["<leader>mgt"] = { "<cmd>ChatGPTRun translate<CR>", "Translate" },
+    ["<leader>mgk"] = { "<cmd>ChatGPTRun keywords<CR>", "Keywords" },
+    ["<leader>mgd"] = { "<cmd>ChatGPTRun docstring<CR>", "Docstring" },
+    ["<leader>mga"] = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests" },
+    ["<leader>mgo"] = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code" },
+    ["<leader>mgs"] = { "<cmd>ChatGPTRun summarize<CR>", "Summarize" },
+    ["<leader>mgf"] = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs" },
+    ["<leader>mgx"] = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code" },
+    ["<leader>mgr"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit" },
+    ["<leader>mgl"] = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis" },
   },
 }
 

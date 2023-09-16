@@ -32,7 +32,22 @@ lspconfig.terraformls.setup {
   cmd = { "terraform-ls", "serve" },
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "terraform", "hcl", "terraform-vars" }
+  filetypes = { "terraform", "hcl", "terraform-vars" },
 }
--- 
--- lspconfig.pyright.setup { blabla}
+
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+        typeCheckingMode = "basic",
+        stubPath = vim.fn.expand "~/.config/nvim/lua/custom/python/stubs",
+      },
+    },
+  },
+}
