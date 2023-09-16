@@ -142,6 +142,34 @@ local plugins = {
   },
 
   {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function()
+      require("dap-go").setup {
+        delve = {
+          path = "~/.local/share/nvim/mason/packages/delve/dlv",
+        },
+      }
+      require("core.utils").load_mappings "dap_go"
+    end,
+  },
+
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function()
+      require("gopher").setup()
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+
+  {
     "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup {}

@@ -30,7 +30,8 @@ local sources = {
   b.formatting.terraform_fmt,
 
   -- golang
-  b.formatting.goimports,
+  b.formatting.goimports_reviser,
+  b.formatting.golines,
   b.formatting.gofumpt,
 }
 

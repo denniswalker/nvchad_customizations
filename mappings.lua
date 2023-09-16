@@ -5,6 +5,8 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files." },
+    ["<C-w>"] = { "<cmd> bdelete <CR>", "Close the tab (buffer)." },
+    ["<C-q>"] = { "<cmd> qa!", "Quit Neovim." },
     ["<M-w"] = { "<cmd> WhichKey <CR>", "Open whichkey menu." },
     ["<C-o>"] = { "<cmd> Lspsaga outline <CR>", "Open symbols outline." },
     ["<leader>fs"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Find Symbols." },
@@ -53,23 +55,11 @@ M.dap_python = {
       end,
       "Run the current test class",
     },
-    ["<leader>mdpl"] = {
+    ["<leader>mdps"] = {
       function()
-        require("dap-python").debug_last()
+        require("dap-python").debug_selection()
       end,
       "Debug last",
-    },
-    ["<leader>mdpi"] = {
-      function()
-        require("dap-python").debug_import()
-      end,
-      "Debug import",
-    },
-    ["<leader>mdpc"] = {
-      function()
-        require("dap-python").debug_config()
-      end,
-      "Debug config",
     },
     ["<leader>mdpb"] = {
       function()
@@ -112,6 +102,24 @@ M.dap_python = {
         require("dap-python").debug_test_flaky()
       end,
       "Debug test flaky",
+    },
+  },
+}
+
+M.dap_go = {
+  plugin = true,
+  n = {
+    ["<leader>mdgtn"] = {
+      function()
+        require("dap-go").debug_test()
+      end,
+      "Debug nearest go test.",
+    },
+    ["<leader>mdgtl"] = {
+      function()
+        require("dap-go").debug_last()
+      end,
+      "Debug the last go test.",
     },
   },
 }

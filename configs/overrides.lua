@@ -12,6 +12,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "go",
     "terraform",
     "python",
   },
@@ -49,8 +50,10 @@ M.mason = {
     -- golang
     "gopls",
     "golangci-lint",
-    "goimports",
+    "goimports-reviser",
+    "golines",
     "gofumpt",
+    "delve",
 
     -- ruby
     "solargraph",

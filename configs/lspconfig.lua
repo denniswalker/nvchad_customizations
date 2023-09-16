@@ -28,6 +28,25 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.gopls.setup {
+  cmd = { "gopls", "serve" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+      completeUnimported = true,
+      usePlaceholders = true,
+    },
+  },
+}
+
 lspconfig.terraformls.setup {
   cmd = { "terraform-ls", "serve" },
   on_attach = on_attach,
