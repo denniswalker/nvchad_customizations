@@ -74,6 +74,8 @@ M.mason = {
 
     -- yaml
     "yaml-language-server",
+    "yamlfmt",
+    "yamlfix",
   },
 }
 

@@ -33,6 +33,10 @@ local sources = {
   b.formatting.goimports_reviser,
   b.formatting.golines,
   b.formatting.gofumpt,
+
+  -- yaml
+  b.formatting.yamlfmt,
+  b.formatting.yamlfix,
 }
 
 null_ls.setup {
