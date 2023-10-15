@@ -25,6 +25,7 @@ local sources = {
 
   -- bash
   b.formatting.shfmt,
+  b.diagnostics.shellcheck,
 
   -- terraform
   b.formatting.terraform_fmt,

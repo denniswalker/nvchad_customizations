@@ -32,6 +32,7 @@ M.mason = {
     "bash-language-server",
     "bash-debug-adapter",
     "shfmt",
+    "shellcheck",
 
     -- lua stuff
     "lua-language-server",
