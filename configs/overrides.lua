@@ -15,6 +15,7 @@ M.treesitter = {
     "go",
     "terraform",
     "python",
+    "yaml",
   },
   indent = {
     enable = true,
@@ -75,7 +76,6 @@ M.mason = {
 
     -- yaml
     "yaml-language-server",
-    "yamlfmt",
     "yamlfix",
   },
 }
