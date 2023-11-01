@@ -5,7 +5,7 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files." },
-    ["<C-w>"] = { "<cmd> bdelete <CR>", "Close the tab (buffer)." },
+    -- ["<C-w>"] = { "<cmd> bdelete <CR>", "Close the tab (buffer)." },
     ["<C-q>"] = { "<cmd> qa! <CR>", "Quit Neovim." },
     ["<M-w"] = { "<cmd> WhichKey <CR>", "Open whichkey menu." },
     ["<C-o>"] = { "<cmd> Lspsaga outline <CR>", "Open symbols outline." },
