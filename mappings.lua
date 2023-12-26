@@ -4,11 +4,9 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files." },
-    -- ["<C-w>"] = { "<cmd> bdelete <CR>", "Close the tab (buffer)." },
     ["<C-q>"] = { "<cmd> qa! <CR>", "Quit Neovim." },
     ["<M-w"] = { "<cmd> WhichKey <CR>", "Open whichkey menu." },
-    ["<C-o>"] = { "<cmd> Lspsaga outline <CR>", "Open symbols outline." },
+    ["<leader>mco"] = { "<cmd> Lspsaga outline <CR>", "Open symbols outline." },
     ["<leader>fs"] = { "<cmd> Telescope lsp_workspace_symbols <CR>", "Find Symbols." },
   },
 }
@@ -20,6 +18,13 @@ M.LSPSaga = {
     ["<leader>mch"] = { "<cmd>Lspsaga hover_doc <CR>", "Hover docs" },
     ["<leader>mcf"] = { "<cmd>Lspsaga finder <CR>", "Find references" },
     ["<leader>mcp"] = { "<cmd>Lspsaga peek_definition <CR>", "Show definition" },
+  },
+}
+M.distant = {
+  plugin = true,
+  n = {
+    ["<leader>mro"] = { "<cmd>DistantOpen ", "Distant Open" },
+    ["<leader>mrc"] = { "<cmd>DistantConnect ssh://", "Distant Connect" },
   },
 }
 M.dap = {

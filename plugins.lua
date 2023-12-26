@@ -182,6 +182,16 @@ local plugins = {
     event = "LspAttach",
   },
 
+  {
+    "chipsenkbeil/distant.nvim",
+    branch = "v0.3",
+    lazy = false,
+    config = function()
+      require("distant"):setup()
+      require("core.utils").load_mappings "distant"
+    end,
+  },
+
   -- To make a plugin not be loaded
   --{
   --  "NvChad/nvim-colorizer.lua",
