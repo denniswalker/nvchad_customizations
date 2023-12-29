@@ -77,6 +77,10 @@ M.mason = {
     -- yaml
     "yaml-language-server",
     "yamlfix",
+
+    -- Ansible
+    "ansiblelint",
+    "ansible-language-server",
   },
 }
 

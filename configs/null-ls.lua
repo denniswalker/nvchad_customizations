@@ -37,6 +37,9 @@ local sources = {
 
   -- yaml
   b.formatting.yamlfix,
+
+  -- ansible
+  b.diagnostics.ansiblelint,
 }
 
 null_ls.setup {

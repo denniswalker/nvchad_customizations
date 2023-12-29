@@ -19,6 +19,7 @@ local servers = {
   "helm_ls",
   "tflint",
   "yamlls",
+  "ansiblels",
 }
 
 for _, lsp in ipairs(servers) do
