@@ -12,7 +12,6 @@ local servers = {
   "terraformls",
   "golangci_lint_ls",
   "gopls",
-  "bashls",
   "solargraph",
   "pylsp",
   "yamlls",
@@ -28,6 +27,17 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    bash = {
+      explainshellEndpoint = "https://explainshell.com/explain?cmd=",
+      includeAllWorkspaceSymbols = true,
+    },
+  },
+}
 
 lspconfig.gopls.setup {
   cmd = { "gopls", "serve" },
