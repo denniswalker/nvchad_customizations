@@ -1,15 +1,22 @@
 {
-	"name": "terraform_snippets",
-	"contributes": {
-		"snippets": [
-			{
-				"language": [
-					"terraform",
+  "name": "terraform_snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "terraform",
           "hcl",
           "tf"
-				],
-				"path": "./terraform.json"
-			}
-		]
-	}
+        ],
+        "path": "./terraform.json"
+      },
+      {
+        "language": [
+          "yaml.ansible",
+          "ansible"
+        ],
+        "path": "./ansible.json"
+      }
+    ]
+  }
 }
