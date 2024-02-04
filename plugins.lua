@@ -192,6 +192,14 @@ local plugins = {
     end,
   },
 
+  {
+    "chrisgrieser/nvim-scissors",
+    dependencies = "nvim-telescope/telescope.nvim", -- optional
+    opts = {
+      snippetDir = "./snippets",
+    },
+  },
+
   -- To make a plugin not be loaded
   --{
   --  "NvChad/nvim-colorizer.lua",
