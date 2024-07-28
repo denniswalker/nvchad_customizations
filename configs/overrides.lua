@@ -63,6 +63,7 @@ M.mason = {
 
     -- python
     "python-lsp-server",
+    "jedi-language-server",
     "black",
     "pylama",
     "pyright",

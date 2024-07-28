@@ -14,6 +14,7 @@ local servers = {
   "gopls",
   "solargraph",
   "pylsp",
+  "jedi_language_server",
   "yamlls",
   "helm_ls",
   "tflint",
