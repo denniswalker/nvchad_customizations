@@ -60,6 +60,12 @@ local plugins = {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
+    config = function()
+      require("CopilotChat").setup {}
+      require("core.utils").load_mappings "copilot"
+    end,
+    event = "VeryLazy",
+    lazy = false,
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper

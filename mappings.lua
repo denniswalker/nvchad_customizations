@@ -27,6 +27,27 @@ M.distant = {
     ["<leader>mrc"] = { "<cmd>DistantConnect ssh://", "Distant Connect" },
   },
 }
+
+M.copilot = {
+  plugin = true,
+  n = {
+    ["<leader>mcch"] = {
+      function()
+        local actions = require "CopilotChat.actions"
+        require("CopilotChat.integrations.telescope").pick(actions.help_actions())
+      end,
+      desc = "CopilotChat - Help actions",
+    },
+    -- Show prompts actions with fzf-lua
+    ["<leader>mccp"] = {
+      function()
+        local actions = require "CopilotChat.actions"
+        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+      end,
+      desc = "CopilotChat - Prompt actions",
+    },
+  },
+}
 M.dap = {
   plugin = true,
   n = {
