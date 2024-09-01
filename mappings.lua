@@ -11,6 +11,23 @@ M.general = {
   },
 }
 
+M.scissors = {
+  n = {
+    ["<leader>msa"] = {
+      function()
+        require("scissors").addNewSnippet()
+      end,
+      desc = "Add new snippet",
+    },
+    ["<leader>msr"] = {
+      function()
+        require("scissors").editSnippet()
+      end,
+      desc = "Edit snippet",
+    },
+  },
+}
+
 -- more keybinds!
 M.LSPSaga = {
   n = {

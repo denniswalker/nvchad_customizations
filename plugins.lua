@@ -215,9 +215,12 @@ local plugins = {
   {
     "chrisgrieser/nvim-scissors",
     dependencies = "nvim-telescope/telescope.nvim", -- optional
-    opts = {
-      snippetDir = "./snippets",
-    },
+    config = function()
+      require("scissors").setup {
+        snippetDir = vim.env.HOME .. "/.config/nvim/lua/custom/vscode_snippets",
+      }
+      require("core.utils").load_mappings "scissors"
+    end,
   },
 
   -- To make a plugin not be loaded
