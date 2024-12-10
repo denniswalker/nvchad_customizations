@@ -7,7 +7,6 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  --"tsserver",
   "clangd",
   "terraformls",
   "golangci_lint_ls",
