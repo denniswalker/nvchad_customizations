@@ -6,14 +6,15 @@
 --   command = "tabdo wincmd =",
 -- })
 
--- Use the BufReadPost or BufEnter event to set nowinfixbuf for all files
-vim.api.nvim_create_autocmd({"BufReadPost", "BufEnter"}, {
-    callback = function()
-        vim.opt_local.winfixbuf = false
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufEnter" }, {
+  callback = function()
+    if vim.bo.buftype == "" then
+      vim.opt_local.winfixbuf = false
     end
+  end,
 })
 vim.filetype.add { extension = { hcl = "terraform" } }
-vim.g.snipmate_snippets_path = "~/.config/nvim/lua/custom/snippets"
-vim.g.vscode_snippets_path = "~/.config/nvim/lua/custom/vscode_snippets"
-vim.wo.relativenumber = true
-vim.wo.number = true
+vim.g.snipmate_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/snippets"
+vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/vscode_snippets"
+vim.opt.relativenumber = true
+vim.opt.number = true

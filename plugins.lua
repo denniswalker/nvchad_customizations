@@ -7,24 +7,15 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
-      require "plugins.configs.lspconfig"
+      require("nvchad.configs.lspconfig").defaults()
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
   -- override plugin configs
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = overrides.mason,
   },
 
@@ -36,6 +27,11 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
+  },
+
+  {
+    "folke/which-key.nvim",
+    opts = require("custom.configs.which-key").opts,
   },
 
   -- Install a plugin
@@ -52,39 +48,61 @@ local plugins = {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = overrides.copilot,
-    config = function()
-      require("copilot").setup {}
+    config = function(_, opts)
+      require("copilot").setup(opts)
     end,
   },
 
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
-    config = function()
-      require("CopilotChat").setup {}
+    cmd = {
+      "CopilotChat",
+      "CopilotChatAgents",
+      "CopilotChatCommit",
+      "CopilotChatCommitStaged",
+      "CopilotChatDocs",
+      "CopilotChatExplain",
+      "CopilotChatFix",
+      "CopilotChatLoad",
+      "CopilotChatOptimize",
+      "CopilotChatReview",
+      "CopilotChatSave",
+      "CopilotChatTests",
+      "CopilotChatToggle",
+    },
+    init = function()
       require("core.utils").load_mappings "copilot"
     end,
-    event = "VeryLazy",
-    lazy = false,
+    config = function(_, opts)
+      require("CopilotChat").setup(opts)
+    end,
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
     opts = {
-      debug = true, -- Enable debugging
-      -- See Configuration section for rest
+      debug = false,
     },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 
   {
     "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
+    cmd = {
+      "AvanteAsk",
+      "AvanteBuild",
+      "AvanteChat",
+      "AvanteClear",
+      "AvanteEdit",
+      "AvanteFocus",
+      "AvanteRefresh",
+      "AvanteShowRepoMap",
+      "AvanteSwitchProvider",
+      "AvanteToggle",
+    },
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here
-      provider = "openai", -- Only recommend using Claude
+      provider = "openai",
       auto_suggestions_provider = "openai",
       openai = {
         endpoint = "https://api.openai.com/v1",
@@ -135,8 +153,16 @@ local plugins = {
 
   {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    lazy = false,
+    cmd = {
+      "ChatGPT",
+      "ChatGPTActAs",
+      "ChatGPTCompleteCode",
+      "ChatGPTEditWithInstruction",
+      "ChatGPTRun",
+    },
+    init = function()
+      require("core.utils").load_mappings "ai"
+    end,
     config = function()
       require("chatgpt").setup {
         api_key_cmd = "echo -n $OPENAI_API_KEY",
@@ -153,6 +179,7 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
+      "hrsh7th/cmp-path",
       {
         "zbirenbaum/copilot-cmp",
         config = function()
@@ -172,7 +199,35 @@ local plugins = {
     },
   },
 
-  { "sheerun/vim-polyglot" },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require "custom.configs.lint"
+    end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      input = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
 
   {
     "mfussenegger/nvim-dap",
@@ -188,6 +243,7 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
     },
     config = function()
       local dap = require "dap"
@@ -261,10 +317,17 @@ local plugins = {
   {
     "chipsenkbeil/distant.nvim",
     branch = "v0.3",
-    lazy = false,
+    cmd = {
+      "Distant",
+      "DistantConnect",
+      "DistantLaunch",
+      "DistantOpen",
+    },
+    init = function()
+      require("core.utils").load_mappings "distant"
+    end,
     config = function()
       require("distant"):setup()
-      require("core.utils").load_mappings "distant"
     end,
   },
 

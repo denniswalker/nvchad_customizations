@@ -3,6 +3,7 @@ local M = {}
 
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
+local overrides = require "custom.configs.overrides"
 
 M.ui = {
   theme = "ayu_dark",
@@ -60,6 +61,11 @@ M.ui = {
   },
 }
 M.plugins = "custom.plugins"
+
+M.mason = {
+  pkgs = overrides.mason.ensure_installed,
+  skip = {},
+}
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"

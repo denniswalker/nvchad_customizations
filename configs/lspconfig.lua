@@ -1,34 +1,26 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-
--- if you just want default config for the servers then put them in a table
 local servers = {
   "html",
   "cssls",
   "clangd",
-  "terraformls",
   "golangci_lint_ls",
-  "gopls",
   "solargraph",
-  "pylsp",
-  "jedi_language_server",
-  "yamlls",
   "helm_ls",
   "tflint",
   "yamlls",
   "ansiblels",
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+for _, server in ipairs(servers) do
+  vim.lsp.config(server, {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 end
 
-lspconfig.bashls.setup {
+vim.lsp.config("bashls", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -37,14 +29,14 @@ lspconfig.bashls.setup {
       includeAllWorkspaceSymbols = true,
     },
   },
-}
+})
 
-lspconfig.gopls.setup {
+vim.lsp.config("gopls", {
   cmd = { "gopls", "serve" },
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
+  root_markers = { "go.work", "go.mod", ".git" },
   settings = {
     gopls = {
       analyses = {
@@ -56,16 +48,16 @@ lspconfig.gopls.setup {
       usePlaceholders = true,
     },
   },
-}
+})
 
-lspconfig.terraformls.setup {
+vim.lsp.config("terraformls", {
   cmd = { "terraform-ls", "serve" },
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "terraform", "hcl", "terraform-vars" },
-}
+})
 
-lspconfig.pyright.setup {
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "python" },
@@ -80,4 +72,11 @@ lspconfig.pyright.setup {
       },
     },
   },
-}
+})
+
+vim.lsp.enable(vim.list_extend(servers, {
+  "bashls",
+  "gopls",
+  "terraformls",
+  "pyright",
+}))
